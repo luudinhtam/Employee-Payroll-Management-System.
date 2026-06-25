@@ -2,8 +2,6 @@
 import Core.EmployeeList;
 import Tool.ConsoleInputter;
 
-
-
 /**
  *
  * @author acer
@@ -57,14 +55,17 @@ public class Manager {
                     break;
                     
                 case 2: // Add a new employee
+                    changed = true;
                     emList.addEmployee();
                     break;
                 
                 case 3: // Update employee information
+                    changed = true;
                     emList.updateEmployee();
                     break;
                     
                 case 4: // Remove an employee by ID
+                    changed = true;
                     emList.removeEmployeeById();
                     break;
                     
@@ -88,7 +89,7 @@ public class Manager {
                 
                 case 9: // Quit program
                     if (changed == true) {
-                        boolean resp = ConsoleInputter.getBoolean("Save changes on Player List? Y/N");
+                        boolean resp = ConsoleInputter.getBoolean("Save changes on Employee List? Y/N");
                         if (resp == true) {
                             emList.saveToFile(emFile);
                             System.out.println("Data has been saved!");
